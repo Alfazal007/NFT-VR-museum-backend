@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nft-vr-service
+  labels:
+    app: nft-vr-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nft-vr-service
+  template:
+    metadata:
+      labels:
+        app: nft-vr-service
+    spec:
+      containers:
+        - name: nft-vr-service
+          image: robadrinacr1.azurecr.io/nft-vr-service:latest
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: nft-vr-service-configmap
+                  key: server_port
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: jwt_secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nft-vr-service
+spec:
+  selector:
+    app: nft-vr-service
+  ports:
+    - protocol: TCP
+      port: 3002
+      targetPort: 3001
