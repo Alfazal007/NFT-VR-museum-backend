@@ -7,5 +7,5 @@ COPY . .
 RUN npm install
 
 # Run
-EXPOSE 3000
+EXPOSE 3002
 CMD ["sh", "-c", "node server.js" ]

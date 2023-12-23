@@ -1,4 +1,4 @@
-name: 'VR NFT Service - Build and Deploy'
+name: 'NFT VR Service - Build and Deploy'
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 env:
   AZURE_CONTAINER_REGISTRY: 'robadrinacr1'
-  CONTAINER_NAME: 'vr-nft-service'
+  CONTAINER_NAME: 'nft-vr-service'
   CONTAINER_TAG: 'latest'
   PROJECT_PATH: './'
   DOCKERFILE: './Dockerfile'
