@@ -16,7 +16,7 @@ env:
   RESOURCE_GROUP: 'WLD'
   CLUSTER_NAME: 'robadrin-aks1'
   DEPLOYMENT_MANIFEST_PATH: 'manifest'
-  CLUSTER_NAMESPACE: 'vault'
+  CLUSTER_NAMESPACE: 'nft-vr'
   ENVIRONMENT: 'dev'
 
 jobs:
