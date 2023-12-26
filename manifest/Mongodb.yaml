@@ -22,8 +22,8 @@ spec:
           imagePullPolicy: Always
           env:
             - name: MONGO_CONNECTION_STRING # Define the connection string as an environment variable
-            valueFrom:
-              secretKeyRef:
+              valueFrom:
+                secretKeyRef:
                   name: nft-vr-service-secret
                   key: connection_string
           volumeMounts:
