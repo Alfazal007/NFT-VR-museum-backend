@@ -12,4 +12,4 @@ metadata:
 type: Opaque
 data:
   jwt_secret: ZnJpZW5kVmF1bHRTZWNyZXRKV1RDb2Rl
-  connection_string: bW9uZ29kYjovL3JvaGl0aDpyb2hpdGhAbW9uZ29kYi1zZXJ2aWNlOjI3MDE3L25mdHZyYmFja2VuZDE=
+  connection_string: bW9uZ29kYjovLzEyNy4wLjAuMToyNzAxNy8/ZGlyZWN0Q29ubmVjdGlvbj10cnVlJnNlcnZlclNlbGVjdGlvblRpbWVvdXRNUz0yMDAwJmFwcE5hbWU9bW9uZ29zaCsyLjEuMQ==
