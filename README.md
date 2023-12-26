@@ -43,7 +43,7 @@ Get all pods
 kubectl get pods -n <namespace>
 ```
 
-Launch interactive postgres on Azure
+Launch interactive shell on Azure
 
 ```
 kubectl exec -i -t -n <namespace> <pod name> -- /bin/bash
