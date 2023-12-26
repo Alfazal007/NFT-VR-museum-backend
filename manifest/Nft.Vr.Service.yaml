@@ -31,6 +31,11 @@ spec:
                 secretKeyRef:
                   name: nft-vr-service-secret
                   key: jwt_secret
+            - name: MONGO_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: connection_string
 
 ---
 apiVersion: v1
