@@ -2,7 +2,7 @@ import { User } from "../../models/user.model.js";
 import { ApiError } from "../../utils/ApiError.js";
 import { ApiResponse } from "../../utils/ApiResponse.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
-import { uploadOnCloudinary } from "../../utils/cloudImage.js";
+import { uploadOnCloudinary, deleteFromCloudinary } from "../../utils/cloudImage.js";
 import fs from "fs";
 
 
@@ -44,23 +44,30 @@ const register = asyncHandler(
             let avatar = await uploadOnCloudinary(avatarLocalPath);
             avatarUrl = avatar.url;
         }
-
-
-        const registeredUser = await User.create(
-            {
-                name,
-                username,
-                role,
-                email,
-                password,
-                phone,
-                avatar: avatarUrl || ""
-            }
-        );
+        let registeredUser;
+        try {
+            registeredUser = await User.create(
+                {
+                    name,
+                    username,
+                    role,
+                    email,
+                    password,
+                    phone,
+                    avatar: avatarUrl || "",
+                }
+            );
+        } catch (err) {
+            await deleteFromCloudinary(avatarUrl);
+            throw new ApiError(400, "Invalid credentials");
+        }
 
         const createdUser = await User.findById(registeredUser._id).select("-password");
 
         if (!createdUser) {
+            if (avatarUrl) {
+                await deleteFromCloudinary(avatarUrl);
+            }
             throw new ApiError(500, "Something went wrong while registering the user");
         }
         return res.status(201).json(

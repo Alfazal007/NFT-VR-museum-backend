@@ -31,7 +31,9 @@ const userSchema = new Schema(
             required: true
         },
         phone: {
-            type: String
+            type: String,
+            minLength: 10,
+            maxLength: 10
         },
         avatar: {
             type: String

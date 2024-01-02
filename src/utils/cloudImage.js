@@ -33,9 +33,8 @@ const deleteFromCloudinary = async (url) => {
         if (!url) {
             return null;
         }
-        const splitUrl = url.split("/");
-        const filename = splitUrl[splitUrl.length - 1];
-        const publicId = filename.split(".")[0];
+        const cloudinaryBaseUrl = `http://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`;
+        const publicId = url.replace(cloudinaryBaseUrl, '').split('/')[1].split('.')[0];
         if (!publicId) {
             return null;
         }
