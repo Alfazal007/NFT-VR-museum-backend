@@ -26,16 +26,52 @@ spec:
                 configMapKeyRef:
                   name: nft-vr-service-configmap
                   key: server_port
-            - name: JWT_SECRET
+            - name: CORS_ORIGIN
               valueFrom:
-                secretKeyRef:
-                  name: nft-vr-service-secret
-                  key: jwt_secret
+                configMapKeyRef:
+                  name: nft-vr-service-configmap
+                  key: cors_origin
             - name: MONGO_CONNECTION_STRING
               valueFrom:
                 secretKeyRef:
                   name: nft-vr-service-secret
                   key: connection_string
+            - name: CLOUDINARY_CLOUD_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: cloud_name
+            - name: CLOUDINARY_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: api_key
+            - name: CLOUDINARY_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: api_secret
+            - name: ACCESS_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: token_secret
+            - name: ACCESS_TOKEN_EXPIRY
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: token_expiry
+            - name: REFRESH_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: refresh_token_secret
+            - name: REFRESH_TOKEN_EXPIRY
+              valueFrom:
+                secretKeyRef:
+                  name: nft-vr-service-secret
+                  key: refresh_token_expiry
+
 
 ---
 apiVersion: v1
