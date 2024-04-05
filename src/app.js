@@ -30,4 +30,7 @@ import { nftRouter } from "./routes/nft.routes.js";
 app.use("/nft-vr/service/nft", nftRouter);
 
 
+import { aiRouter } from "./routes/ai.routes.js";
+app.use("/nft-vr/service/ai", aiRouter);
+
 export { app };

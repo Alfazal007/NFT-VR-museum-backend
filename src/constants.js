@@ -1,5 +1,8 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
 export const DB_NAME = "nftvrbackend1";
 export const MarketAddress = "0xbEeCB9EF39c565d4683d50d35420EFA4e27e002d";
+export const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export const NFT_MARKETPLACE = {
     "_format": "hh-sol-artifact-1",
