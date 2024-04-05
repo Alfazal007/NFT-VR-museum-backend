@@ -26,4 +26,11 @@ app.use(cookieParser()); // get cookies from browser and also to set it
 import userRoutes from "./routes/user.routes.js";
 app.use("/nft-vr/service/user/auth", userRoutes);
 
+import { nftRouter } from "./routes/nft.routes.js";
+app.use("/nft-vr/service/nft", nftRouter);
+
+
+import { aiRouter } from "./routes/ai.routes.js";
+app.use("/nft-vr/service/ai", aiRouter);
+
 export { app };
