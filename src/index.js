@@ -1,4 +1,3 @@
-import { connectDB } from "./db/connectDB.js";
 import { app } from "./app.js";
 
 
